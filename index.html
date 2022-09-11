@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restera</title>
+    <link rel="stylesheet" href="dist/css/app.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+</head>
+<body style="overflow-x: hidden">
+    <div id="app" style="width: 100%; overflow-x: hidden">
+        <div class="video-wrapper">
+            <div class="video-desktop">
+                <div v-show="preloading" :class="{show: preloading}" class="video-preloading"
+                     style="object-fit: cover; max-height: 100vh; height: 100vh; max-width: 100vw; width: 100%">
+                    <div class="video-preloading-background">
+                        <img style="object-fit: cover; max-height: 100vh; height: 100vh; max-width: 100vw; width: 100%" src="assets/video-preloading-back.jpg" alt="">
+                    </div>
+                    <div class="video-preloading-block">
+                        <div class="percent">
+                            100%
+                        </div>
+                        <div class="line">
+                            <div class="line-progress"></div>
+                        </div>
+                    </div>
+                </div>
+                <video id="myVideo"
+                       class="my-video"
+                       ref="myVideo"
+                       v-show="!preloading"
+                       :class="{show: !preloading}"
+                       v-on:canplay="stopPreloading()"
+                       style="object-fit: cover; max-height: 100vh; height: 100vh; max-width: 100vw; width: 100%;"
+                       playsinline
+                       muted
+                       autoplay
+                       no-controls>
+                    <source src="assets/desktop.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+            </div>
+            <div class="video-mobile"></div>
+        </div>
+        <div class="form-block">
+            <div class="background">
+                <img src="assets/desktop.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="content-title">
+                    <h2>Хотите работать
+                        с нами уже сейчас?</h2>
+                </div>
+                <div v-if="!openForm" class="content-call-to-action">
+                    <button @click="openForm = true">Получить презентацию</button>
+                </div>
+                <div v-if="openForm" class="content-form">
+                    <div class="title">
+                        <p>...но сначала немного о вас</p>
+                    </div>
+                    <form>
+                        <label>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <input type="text">
+                        </label>
+                        <div class="button-block">
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                preloading: true,
+                openForm: false
+            },
+            methods: {
+                stopPreloading () {
+                    // alert('cas')
+                    setTimeout(() => {
+                        this.preloading = false
+                    }, 1000)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

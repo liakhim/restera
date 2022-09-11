@@ -1,0 +1,61 @@
+#app {
+  .video-wrapper {
+    .video-desktop {
+      .video-preloading {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        &-background {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+          img {
+
+          }
+        }
+        &-block {
+          position: relative;
+          z-index: 1;
+          width: 400px;
+          .percent {
+            color: #fff;
+          }
+          .line {
+            height: 40px;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .line-progress {
+              margin-left: 2px;
+              height: 32px;
+              background: #fff;
+              width: calc(100% - 4px);
+              animation: progress 1s 1 linear;
+            }
+          }
+        }
+      }
+      .video-preloading.show {
+        opacity: 1;
+      }
+      .my-video {
+        opacity: 0;
+      }
+      .my-video.show {
+        opacity: 1;
+      }
+    }
+  }
+}
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(100% - 4px);
+  }
+}
