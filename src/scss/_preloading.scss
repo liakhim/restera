@@ -1,6 +1,8 @@
 #app {
   .video-wrapper {
     .video-desktop {
+      display: flex;
+      flex-direction: column;
       .video-preloading {
         position: relative;
         display: flex;

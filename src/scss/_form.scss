@@ -1,7 +1,6 @@
 .form-block {
   position: relative;
-  height: 100vh;
-  padding: 0 200px;
+  min-height: 100vh;
   .background {
     position: absolute;
     top: 0;
@@ -15,35 +14,108 @@
     }
   }
   .content {
+    max-width: 1040px;
+    min-width: 1040px;
+    height: 100%;
+    margin: auto;
     position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    height: 100%;
+    padding-top: 245px;
     &-title {
-      width: 50%;
-      border: 1px solid #fff;
-      height: 100%;
+      flex: auto;
+      width: 560px;
+      min-width: 560px;
+      max-width: 560px;
+      height: 158px;
+      position: relative;
+      svg {
+        position: absolute;
+        bottom: 0;
+        right: 14px;
+      }
       h2 {
-        color: #fff
+        color: #fff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 0 0 0;
+        span {
+          white-space: nowrap;
+        }
       }
     }
-    &-form {
-      width: 50%;
+    &-call-to-action {
+      flex: auto;
       height: 100%;
-      border: 1px solid red;
+      margin-top: 120px;
       .title {
         p {
           color: #fff;
+        }
+      }
+      .button-block {
+        margin: 0 0 0 55px;
+        button {
+          width: 424px;
+          color: #fff;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          outline: none;
+          border: 1px solid #fff;
+          font-size: 24px;
+        }
+      }
+    }
+    &-form {
+      width: 100%;
+      flex: auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-top: 160px;
+      .title {
+        width: 424px;
+        margin: 0 0 0 55px;
+        p {
+          color: #fff;
+          text-align: right;
+          font-size: 24px;
+        }
+      }
+      .button-block {
+        button {
+          width: 424px;
+          color: #fff;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          outline: none;
+          border: 1px solid #fff;
+          font-size: 24px;
         }
       }
       form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0 40px;
+        padding-bottom: 60px;
+        margin: 0 0 0 55px;
+        width: 424px;
         label {
           width: 100%;
+          margin-top: 20px;
           input {
             width: 100%;
             height: 50px;
@@ -51,13 +123,20 @@
             outline: none;
             border: none;
             border-bottom: 1px solid white;
+            color: #fff;
+            &::placeholder {
+              color: #fff;
+            }
+            &:focus::placeholder {
+              opacity: 0;
+            }
           }
         }
         .button-block {
           width: 100%;
-          margin-top: 50px;
+          margin-top: 30px;
           button {
-            width: 100%;
+            width: 424px;
             color: #fff;
             height: 50px;
             display: flex;

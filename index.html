@@ -18,7 +18,7 @@
                 <div v-show="preloading" :class="{show: preloading}" class="video-preloading"
                      style="object-fit: cover; max-height: 100vh; height: 100vh; max-width: 100vw; width: 100%">
                     <div class="video-preloading-background">
-                        <img style="object-fit: cover; max-height: 100vh; height: 100vh; max-width: 100vw; width: 100%" src="assets/video-preloading-back.jpg" alt="">
+                        <img style="object-fit: cover; max-height: 100vh; height: 100vh; max-width: 100vw; width: 100%" src="assets/video-preloading-back.png" alt="">
                     </div>
                     <div class="video-preloading-block">
                         <div class="percent">
@@ -51,11 +51,30 @@
             </div>
             <div class="content">
                 <div class="content-title">
-                    <h2>Хотите работать
-                        с нами уже сейчас?</h2>
+                    <h2><span>Хотите работать</span>
+                        <span>с нами уже сейчас?</span></h2>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="224" height="79" viewBox="0 0 224 79" fill="none">
+                            <path class="stroke-path" d="M202.5 17C209.623 20.8161 219.228 34.5859 219.978 42.9814C220.54 50.2321 215.104 55.7655 209.668 59.3909C198.233 66.8324 184.175 70.0761 171.053 72.7474C140.311 79.044 108.257 79.8073 77.1399 76.1819C62.1438 74.4647 46.7728 71.9842 32.5265 67.0232C25.9657 64.7335 19.2175 61.6806 14.5312 56.338C8.72019 49.8505 7.59549 40.6917 10.5947 32.487C16.4057 16.8408 33.6512 8.25448 48.6473 4.62914C63.8308 0.812988 79.5767 0.812988 94.9477 1.0038C129.814 1.38541 166.179 2.91187 198.233 18.9397C207.606 23.7099 228.038 34.3951 222.04 48.1332C218.291 56.5288 208.356 61.6806 200.295 64.7335C195.796 66.4508 191.11 66.8324 186.424 67.4048C177.614 68.3588 168.804 69.1221 159.993 69.6945C143.31 70.6485 126.44 70.8393 109.756 71.0301C92.6983 71.2209 75.6403 71.4117 58.7697 71.9842C42.4614 72.5566 24.4661 73.8922 10.9696 62.8254C-12.8367 43.5539 10.5947 15.696 31.9641 8.25448C34.7759 7.30044 45.6481 6.61839 48.6473 7" stroke="black" stroke-width="0.1"/>
+                        </svg>
+                    </div>
                 </div>
                 <div v-if="!openForm" class="content-call-to-action">
-                    <button @click="openForm = true">Получить презентацию</button>
+                    <div class="arrow">
+                        <div class="arrow-line">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="231" height="112" viewBox="0 0 231 112">
+                                <path class="arrow-path" d="M229 109.846C209.514 89.4062 187.806 67.0821 158.757 61.8901C146.305 59.618 133 60.5151 121.536 65.9508C111.846 70.4863 99.5848 80.4081 101.749 92.5178C103.94 105.286 119.698 103.954 129.185 102.396C140.475 100.595 152.796 95.9473 153.879 82.7097C155.091 68.6422 143.447 58.2558 133.552 50.2683C122.121 41.0271 109.917 32.9732 96.7822 26.278C67.1335 10.8883 34.1621 2.56568 1.02734 2" stroke="#F9E81C" stroke-dashoffset="0" stroke-width="4" stroke-dasharray="660"/>
+                            </svg>
+                        </div>
+                        <div class="arrow-beak">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 28 32" fill="none">
+                                <path class="arrow-path" d="M18 1.5L26.3966 28.5559C26.6428 29.3491 25.8707 30.0793 25.0925 29.7894L1.5 21" stroke="#F9E81C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="button-block">
+                        <button @click="openForm = true">Получить презентацию</button>
+                    </div>
                 </div>
                 <div v-if="openForm" class="content-form">
                     <div class="title">
@@ -63,13 +82,13 @@
                     </div>
                     <form>
                         <label>
-                            <input type="text">
+                            <input type="text" placeholder="Ваше имя">
                         </label>
                         <label>
-                            <input type="text">
+                            <input type="text" placeholder="Номер телефона">
                         </label>
                         <label>
-                            <input type="text">
+                            <input type="text" placeholder="Ваш email">
                         </label>
                         <div class="button-block">
                             <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Отправить</button>

@@ -1,0 +1,37 @@
+.arrow {
+  width: 231px;
+  height: 112px;
+  position: relative;
+  transform: rotate(2.44deg);
+  margin-bottom: 15px;
+  &-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &-beak {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+
+path.arrow-path {
+  fill:none;
+  stroke:#F9E81C;
+  stroke-width: 4;
+  stroke-dasharray: 660;
+  stroke-dashoffset: 0;
+  animation: draw 2s linear 1;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: -660;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke-width: 4;
+  }
+}
