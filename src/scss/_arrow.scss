@@ -4,6 +4,27 @@
   position: relative;
   transform: rotate(2.44deg);
   margin-bottom: 15px;
+  path {
+    display: none;
+  }
+  path.arrow-path {
+    fill:none;
+    display: block;
+    stroke:#F9E81C;
+    stroke-width: 4;
+    stroke-dasharray: 660;
+    stroke-dashoffset: 0;
+    animation: draw 2s linear 1;
+  }
+  path.arrow-path-safari {
+    fill:none;
+    display: block;
+    stroke:#F9E81C;
+    stroke-width: 4;
+    stroke-dasharray: 660;
+    stroke-dashoffset: 0;
+    animation: draw-safari 2s linear 1!important;
+  }
   &-line {
     position: absolute;
     top: 0;
@@ -15,15 +36,17 @@
     right: 0;
   }
 }
-
-
-path.arrow-path {
-  fill:none;
-  stroke:#F9E81C;
-  stroke-width: 4;
-  stroke-dasharray: 660;
-  stroke-dashoffset: 0;
-  animation: draw 2s linear 1;
+@media (max-width: 1024px) {
+  .arrow {
+    width: 231px;
+    height: 112px;
+    position: relative;
+    transform: rotate(27.44deg);
+    path {}
+    path.arrow-path {}
+    &-line {}
+    &-beak {}
+  }
 }
 
 @keyframes draw {
@@ -32,6 +55,15 @@ path.arrow-path {
   }
   to {
     stroke-dashoffset: 0;
+    stroke-width: 4;
+  }
+}
+@keyframes draw-safari {
+  from {
+    stroke-dashoffset: 660;
+  }
+  to {
+    stroke-dashoffset: 1320;
     stroke-width: 4;
   }
 }

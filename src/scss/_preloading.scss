@@ -50,6 +50,18 @@
       .my-video.show {
         opacity: 1;
       }
+      .my-video.mobile {
+        display: none;
+        @media (max-width: 1024px) {
+          display: block;
+        }
+      }
+      .my-video.desktop {
+        display: block;
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
     }
   }
 }
