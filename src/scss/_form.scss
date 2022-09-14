@@ -72,6 +72,19 @@
           border: 1px solid #fff;
           font-size: 24px;
         }
+        a {
+          width: 300px;
+          color: #fff;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          outline: none;
+          border: 1px solid #fff;
+          font-size: 24px;
+          text-decoration: none;
+        }
       }
     }
     &-form {
