@@ -1,8 +1,8 @@
 .arrow {
-  width: 231px;
-  height: 112px;
+  width: 83px;
+  height: 71px;
   position: relative;
-  transform: rotate(2.44deg);
+  // transform: rotate(2.44deg);
   margin-bottom: 15px;
   path {
     display: none;
@@ -38,10 +38,8 @@
 }
 @media (max-width: 1024px) {
   .arrow {
-    width: 231px;
-    height: 112px;
     position: relative;
-    transform: rotate(27.44deg);
+    transform: rotate(27.44deg) scale(0.8);
     path {}
     path.arrow-path {}
     &-line {}

@@ -1,9 +1,12 @@
 .form-block {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   min-height: 100vh;
+  width: 100%;
   .background {
     position: absolute;
-    top: 0;
+    top: -2px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -58,8 +61,21 @@
           color: #fff;
         }
       }
+      .arrow-block {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        height: 71px;
+        position: relative;
+        .arrow {
+          position: absolute;
+          top: 160px;
+          right: -15px;
+          transform: rotate(73deg);
+        }
+      }
       .button-block {
-        margin: 0 0 0 55px;
+        margin: 180px 0 0 55px;
         button {
           width: 424px;
           color: #fff;
@@ -95,6 +111,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-end;
+      position: relative;
       margin-top: 160px;
       .title {
         width: 424px;
@@ -169,7 +186,9 @@
 }
 @media (max-width: 1024px) {
   .form-block {
+    display: flex;
     align-items: center;
+    width: 100%;
     .background {
       img {
         width: 100%;
@@ -183,12 +202,13 @@
       padding: 0;
       min-width: 360px;
       &-title {
-        width: 414px;
+        // width: 414px;
+        width: 100%;
         min-width: 360px;
-        margin-top: 80px;
+        margin-top: 90px;
         svg {
           position: absolute;
-          bottom: 40px;
+          bottom: -95px;
           right: 0;
           transform: scale(0.65);
         }
@@ -203,18 +223,35 @@
       }
       &-call-to-action {
         margin-top: 40px;
+        width: 100%;
         .title {
           p {}
         }
+        .arrow-block {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          height: 71px;
+          position: relative;
+          .arrow {
+            position: absolute;
+            top: 82px;
+            right: -15px;
+            transform: rotate(73deg) scale(0.8) ;
+          }
+        }
         .button-block {
-          margin: 55px 0 0 0;
+          margin: 95px 0 0 0;
           button {
             width: 100%;
+          }
+          a {
+            margin: auto;
           }
         }
       }
       &-form {
-        margin: 0;
+        margin: -190px 0 0 0;
         .title {
           width: 380px;
           margin: 0 auto;
