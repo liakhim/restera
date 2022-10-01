@@ -11,9 +11,11 @@
       left: 0;
       width: 100%;
       height: 100vh;
+      min-height: 100vh;
       backdrop-filter: blur(10px);
       img {
         height: 100vh;
+        width: 100vw;
       }
     }
     .video-desktop {
@@ -21,6 +23,8 @@
       flex-direction: column;
       position: relative;
       height: 100vh;
+      min-height: 100vh;
+      width: 100%;
       video {
         @media (max-width: 1024px) {
           // max-width: 414px!important;
@@ -48,6 +52,9 @@
           position: relative;
           z-index: 1;
           width: 400px;
+          @media (max-width: 768px) {
+            padding: 0 10px;
+          }
           .percent {
             color: #fff;
           }

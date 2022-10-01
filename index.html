@@ -6,6 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Restera</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="dist/css/app.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -62,7 +68,7 @@
                        @ended="showAnimation = true"
                        no-controls
                     >
-<!--                    <source src="assets/mobile.mp4" type='video/mp4'>-->
+                    <source id="myVideoMobileSrc" type='video/mp4'>
 <!--                    <source src="assets/mobile.hevc.mp4" type='video/mp4'>-->
 <!--                    <source src="assets/mobile.webm" type='video/webm; codecs="vp9, opus"'>-->
                 </video>
@@ -107,7 +113,7 @@
                     </div>
                     <div class="button-block">
                         <button @click="openForm = true" v-if="!availablePresentation && showAnimation">Получить презентацию</button>
-                        <a v-if="availablePresentation" href="assets/pres.pdf" download="">Качаем</a>
+                        <a v-if="availablePresentation" href="assets/pres_s.pdf" download="">Качаем</a>
                     </div>
                 </div>
                 <div v-if="openForm" class="content-form">
@@ -216,7 +222,9 @@
                     .then(resp => resp.blob())
                     .then(blob => {
                         let video = document.getElementById('myVideoMobile')
+                        let videoSrc = document.getElementById('myVideoMobileSrc')
                         video.src = URL.createObjectURL(blob)
+                        videoSrc.src = URL.createObjectURL(blob)
                         video.hidden = false
                         video.play()
                     }).then(() => {
@@ -231,12 +239,12 @@
             },
             created () {
                 let intval = setInterval(() => {
-                    if(this.counter < 78) {
+                    if(this.counter < 99) {
                         this.counter += 1;
                     } else {
                         clearInterval(intval);
                     }
-                }, 360);
+                }, 600);
             }
 
         })
