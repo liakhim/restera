@@ -7,6 +7,13 @@
   font-weight: 300;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Intro';
+  src: local('Intro'), local('Intro'),
+  url('../../assets/fonts/intro/intro_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 * {
   font-family: 'Gilroy', sans-serif;
 }
@@ -19,3 +26,8 @@ body {
 @import "modal";
 @import "arrow";
 @import "stroke";
+
+// **************
+
+@import "presentation/general_slide_styles";
+@import "presentation/slide1.scss";
