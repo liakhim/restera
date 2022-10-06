@@ -4,8 +4,24 @@
       box-shadow: 0 0 10px #00000050;
       position: relative;
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16 / 9;
       margin-bottom: 30px;
+       min-height: 729px;
+      @media (max-width: 1400px) {
+        min-height: 628px;
+      }
+      @media (max-width: 1200px) {
+        min-height: 527px;
+      }
+      @media (max-width: 991px) {
+         min-height: 392px;
+      }
+      @media (max-width: 768px) {
+         min-height: 290px
+      }
+      @media (max-width: 690px) {
+         min-height: auto;
+      }
       &:first-child {
         margin-top: 30px;
       }
@@ -22,6 +38,7 @@
       }
       .content {
         position: relative;
+        z-index: 2;
       }
     }
   }
