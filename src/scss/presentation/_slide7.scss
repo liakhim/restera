@@ -49,6 +49,7 @@
             width: 100%;
             font-size: 90px;
             color: #fff;
+            font-family: Intro, sans-serif;
             text-align: center;
           }
         }
@@ -61,13 +62,145 @@
       flex-direction: column;
       align-items: center;
       .image-block {
-        max-width: 464px;
+        max-width: 500px;
         img {
           width: 100%;
         }
       }
       .text-block {
-        max-width: 464px;
+        height: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+          font-family: Intro, sans-serif;
+          font-size: 22px;
+          &:nth-child(1) {
+            color: #7950C5;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .slide7 {
+    .background {}
+    .content {
+      .left {
+        .title {
+          width: 350px;
+          .back {
+            max-width: 450px;
+            img {
+              max-width: 100%;
+              margin-top: 50px;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 70px;
+            }
+          }
+        }
+      }
+      .right {
+        .image-block {
+          max-width: 400px;
+          img {
+            width: 100%;
+          }
+        }
+        .text-block {
+          max-width: 400px;
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .slide7 {
+    .background {}
+    .content {
+      .left {
+        .title {
+          width: 350px;
+          .back {
+            max-width: 450px;
+            img {
+              max-width: 100%;
+              margin-top: 50px;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 50px;
+            }
+          }
+        }
+      }
+      .right {
+        .image-block {
+          max-width: 290px;
+          img {
+            width: 100%;
+          }
+        }
+        .text-block {
+          max-width: 290px;
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .slide7 {
+    .background {}
+    .content {
+      flex-direction: column;
+      .left {
+        width: 100%;
+        .title {
+          width: 350px;
+          .back {
+            max-width: 450px;
+            img {
+              max-width: 100%;
+              margin-top: 50px;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 50px;
+            }
+          }
+        }
+      }
+      .right {
+        width: 100%;
+        .image-block {
+          max-width: 90%;
+          border-radius: 30px;
+          overflow: hidden;
+          min-height: 200px;
+          img {
+            width: 100%;
+          }
+        }
+        .text-block {
+          max-width: 290px;
+          p {
+            font-size: 14px;
+          }
+        }
       }
     }
   }

@@ -62,6 +62,7 @@
     .content {
       .big-logo {}
       .wave-block {
+        bottom: 70px;
         p {
           font-size: 24px;
           span {
@@ -103,9 +104,38 @@
         width: 65%;
       }
       .wave-block {
-        bottom: 40px;
+        bottom: 60px;
         p {
           font-size: 16px;
+          span {
+            img {
+              max-height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 690px) {
+  .slide1 {
+    .background {}
+    .content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      .big-logo {
+        width: 65%;
+      }
+      .wave-block {
+        margin-top: 50px;
+        bottom: auto;
+        justify-content: flex-end;
+        position: relative;
+        width: 100%;
+        p {
+          font-size: 24px;
           span {
             img {
               max-height: 16px;

@@ -112,7 +112,7 @@
                         </div>
                     </div>
                     <div class="button-block">
-                        <button @click="openForm = true" v-if="!availablePresentation && showAnimation">Получить презентацию</button>
+                        <a href="presentation" v-if="!availablePresentation && showAnimation">Получить презентацию</a>
                         <a v-if="availablePresentation" href="assets/pres_s.pdf" download="">Качаем</a>
                     </div>
                 </div>

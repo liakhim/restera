@@ -8,16 +8,24 @@
   .content {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     height: 100%;
     .title {
       width: 50%;
-      border: 1px solid green;
+      padding: 0 50px;
       h2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 110px;
         color: #fff;
         font-size: 90px;
+        line-height: 1;
+        span {
+          font-family: Intro, sans-serif;
+        }
       }
     }
     .content-body {
@@ -27,8 +35,112 @@
       align-items: center;
       .image-block {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         img {
+          margin: auto;
           width: 100%;
+          max-width: 500px;
+        }
+      }
+      .text-block {
+        max-width: 500px;
+        padding-top: 60px;
+        p {
+          font-family: Intro, sans-serif;
+          font-size: 22px;
+          &:first-child {
+            color: #7950C5;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .slide10 {
+    .background {}
+    .content {
+      .title {
+        h2 {
+          margin-top: 90px;
+          font-size: 70px;
+        }
+      }
+      .content-body {
+        .image-block {
+          img {
+            max-width: 400px;
+          }
+        }
+        .text-block {
+          max-width: 400px;
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .slide10 {
+    .background {}
+    .content {
+      .title {
+        h2 {
+          margin-top: 90px;
+          font-size: 40px;
+        }
+      }
+      .content-body {
+        .image-block {
+          img {
+            max-width: 290px;
+          }
+        }
+        .text-block {
+          padding-top: 30px;
+          max-width: 290px;
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 690px) {
+  .slide10 {
+    .background {}
+    .content {
+      flex-direction: column;
+      .title {
+        width: 100%;
+        padding: 40px 50px 0;
+        h2 {
+          margin-top: 0;
+          font-size: 40px;
+        }
+      }
+      .content-body {
+        width: 100%;
+        .image-block {
+          min-height: 200px;
+          border-radius: 30px;
+          overflow: hidden;
+          max-width: 290px;
+          img {
+            height: 100%;
+          }
+        }
+        .text-block {
+          padding-top: 30px;
+          max-width: 290px;
+          p {
+            font-size: 14px;
+          }
         }
       }
     }

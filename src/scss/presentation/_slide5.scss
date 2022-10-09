@@ -17,7 +17,9 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        font-family: Intro, sans-serif;
         span {
+          font-family: Intro, sans-serif;
           font-size: 60px;
           position: relative;
           .text {
@@ -29,7 +31,7 @@
             top: 0;
             left: 0;
             img {
-              max-height: 30px;
+              max-height: 34px;
             }
           }
           &:nth-child(2) {
@@ -43,6 +45,7 @@
         }
       }
       p {
+        font-family: Intro, sans-serif;
         max-width: 500px;
         font-size: 20px;
         margin-top: 50px;
@@ -96,6 +99,35 @@
     }
   }
 }
+@media (max-width: 1200px) {
+  .slide5 {
+    .background {}
+    .content {
+      padding: 0 60px 100px;
+      .text-block {
+        h2 {
+          font-family: Intro, sans-serif;
+          span {
+            font-size: 40px;
+            .text {}
+            .back {
+              img {
+                max-height: 24px;
+              }
+            }
+            &:nth-child(2) {}
+            .back {}
+          }
+        }
+        p {
+          font-size: 16px;
+          margin-top: 30px;
+          font-family: Intro, sans-serif;
+        }
+      }
+    }
+  }
+}
 @media (max-width: 991px) {
   .slide5 {
     .background {}
@@ -103,6 +135,7 @@
       padding: 0 60px 50px;
       .text-block {
         h2 {
+          font-family: Intro, sans-serif;
           span {
             font-size: 40px;
             .text {}
@@ -116,6 +149,37 @@
         p {
           font-size: 16px;
           margin-top: 30px;
+          font-family: Intro, sans-serif;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .slide5 {
+    .background {}
+    .content {
+      padding: 50px 60px 50px;
+      align-items: center;
+      justify-content: center;
+      .text-block {
+        h2 {
+          font-family: Intro, sans-serif;
+          span {
+            font-size: 40px;
+            .text {}
+            .back {
+              img {}
+            }
+            &:nth-child(2) {}
+            .back {}
+          }
+        }
+        p {
+          font-size: 14px;
+          margin-top: 30px;
+          font-family: Intro, sans-serif;
         }
       }
     }

@@ -10,9 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-<div id="presentation">
+<div id="app">
     <div class="container">
         <div id="first" class="slide slide1">
             <div class="background">
@@ -169,7 +173,7 @@
                                 Тщательно
                             </span>
                             <span class="back">
-                                <img src="../assets/wave.svg" alt="">
+                                <img src="../assets/text-wave.svg" alt="">
                             </span>
                         </span>
                         <span>продуманный</span>
@@ -291,10 +295,10 @@
             <div class="content">
                 <div class="title">
                     <h2>
-                        Ваш офис
-                        там, где
-                        Ваш
-                        ноутбук
+                        <span>Ваш офис</span>
+                        <span>там, где</span>
+                        <span>Ваш</span>
+                        <span>ноутбук</span>
                     </h2>
                 </div>
                 <div class="content-body">
@@ -322,31 +326,176 @@
                 </div>
             </div>
         </div>
-        <div id="twelve" class="slide slide12">
-            <div class="background">
-                <img src="../assets/presentation_image/twelve/twelve_bg.jpg" alt="">
-            </div>
-            <div class="content">
-                12
-            </div>
+        <div class="presentation-button">
+            <button v-if="!availablePresentation" @click="openForm = true" class="presentation-button">
+                Хотите знать больше?
+            </button>
+            <button v-if="availablePresentation" class="presentation-button">
+                Качаем
+            </button>
         </div>
-        <div id="thirteen" class="slide slide13">
+        <div v-if="openForm" class="presentation-form-block">
             <div class="background">
-                <img src="../assets/presentation_image/thirteen/thirteen_bg.jpg" alt="">
+                <img src="../assets/video-preloading-back.jpg" alt="">
             </div>
-            <div class="content">
-                13
+            <div class="title">
+                <p>...но сначала немного о вас</p>
             </div>
+            <form>
+                <label>
+                    <input type="text"
+                           v-model="name"
+                           placeholder="Ваше имя">
+                    <span v-if="nameError"
+                          class="error">Это поле нужно заполнить</span>
+                </label>
+                <label>
+                    <input type="text"
+                           v-model="email"
+                           placeholder="Ваш email">
+                    <span v-if="emailError"
+                          class="error">Это поле нужно заполнить</span>
+                </label>
+                <div class="button-block">
+                    <button @click="sendData()"
+                            type="button">Отправить</button>
+                </div>
+            </form>
         </div>
-        <div id="fourteen" class="slide slide14">
-            <div class="background">
-                <img src="../assets/presentation_image/fourteen/fourteen_bg.jpg" alt="">
-            </div>
-            <div class="content">
-                14
-            </div>
-        </div>
+<!--        <div id="twelve" class="slide slide12">-->
+<!--            <div class="background">-->
+<!--                <img src="../assets/presentation_image/twelve/twelve_bg.jpg" alt="">-->
+<!--            </div>-->
+<!--            <div class="content">-->
+<!--                12-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div id="thirteen" class="slide slide13">-->
+<!--            <div class="background">-->
+<!--                <img src="../assets/presentation_image/thirteen/thirteen_bg.jpg" alt="">-->
+<!--            </div>-->
+<!--            <div class="content">-->
+<!--                13-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div id="fourteen" class="slide slide14">-->
+<!--            <div class="background">-->
+<!--                <img src="../assets/presentation_image/fourteen/fourteen_bg.jpg" alt="">-->
+<!--            </div>-->
+<!--            <div class="content">-->
+<!--                14-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            name: '',
+            phone: '',
+            email: '',
+            nameError: false,
+            phoneError: false,
+            emailError: false,
+            showVideo: true,
+            isReadyVideo: false,
+            preloading: false,
+            openForm: false,
+            windowTop: true,
+            video: null,
+            isSafari: false,
+            availablePresentation: false,
+            showAnimation: true
+        },
+        watch: {
+            name (v) {
+                if (v.length > 0) {
+                    this.nameError = false
+                }
+            },
+            phone (v) {
+                if (v.length > 0) {
+                    this.phoneError = false
+                }
+            },
+            email (v) {
+                if (v.length > 0) {
+                    this.emailError = false
+                }
+            },
+            counter (v) {
+                if (v === 100) {
+                    this.preloading = false
+                }
+            }
+        },
+        computed: {
+            percent() {
+                return this.counter.toFixed();
+            }
+        },
+        methods: {
+            ready () {
+                setTimeout(() => {
+                    this.preloading = false
+                }, 1000)
+            },
+            sendData () {
+                if (this.name.length === 0) {
+                    this.nameError = true
+                }
+                if (this.email.length === 0) {
+                    this.emailError = true
+                }
+                if (!this.nameError > 0 && !this.phoneError && !this.emailError) {
+                    axios.post('http://mdigital.beget.tech/restera/send.php', {
+                        name: this.name,
+                        email: this.email
+                    }).then(() => {
+                        this.availablePresentation = true
+                        this.openForm = false
+                    }).catch(() => {
+                        this.availablePresentation = true
+                        this.openForm = false
+                        window.scrollTo(0,document.body.scrollHeight);
+                    })
+                }
+            }
+        },
+        mounted () {
+            this.isSafari =  /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            fetch("/restera/assets/mobile.mp4")
+                .then(resp => resp.blob())
+                .then(blob => {
+                    let video = document.getElementById('myVideoMobile')
+                    let videoSrc = document.getElementById('myVideoMobileSrc')
+                    video.src = URL.createObjectURL(blob)
+                    videoSrc.src = URL.createObjectURL(blob)
+                    video.hidden = false
+                    video.play()
+                }).then(() => {
+                let intval = setInterval(() => {
+                    if(this.counter < 100) {
+                        this.counter += 1;
+                    } else {
+                        clearInterval(intval);
+                    }
+                }, 6);
+            })
+        },
+        created () {
+            let intval = setInterval(() => {
+                if(this.counter < 99) {
+                    this.counter += 1;
+                } else {
+                    clearInterval(intval);
+                }
+            }, 600);
+        }
+
+    })
+</script>
 </body>
 </html>

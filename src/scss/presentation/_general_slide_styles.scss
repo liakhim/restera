@@ -1,4 +1,5 @@
-#presentation {
+#app {
+  font-family: Intro, sans-serif;
   .container {
     .slide {
       box-shadow: 0 0 10px #00000050;
@@ -20,7 +21,9 @@
          min-height: 290px
       }
       @media (max-width: 690px) {
-         min-height: auto;
+         min-height: 650px;
+        aspect-ratio: 9 / 16;
+
       }
       &:first-child {
         margin-top: 30px;
